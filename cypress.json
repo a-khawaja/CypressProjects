@@ -1,0 +1,5 @@
+{
+    "watchForFileChanges": true,
+    "defaultCommandTimeout": 20000,
+    "baseUrl": "https://weather.com/"
+}
