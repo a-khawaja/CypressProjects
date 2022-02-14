@@ -1,0 +1,15 @@
+Git commands
+
+git add . // to add all the files you want to commit
+git commit -m "type your message here"
+git push -u origin master // to push it to the master branch directly
+git restore . // Discard all the local changes in the git to make it sync with the master
+git reset --soft HEAD~1 // To undo the last commit in the local git before push
+git restore --staged <file name> // To undo the git add files
+git branch <branch_name> // new branch name
+git checkout <branch_name> // switching to branch
+git checkout -b <branch_name> // create and switch to the new branch
+git pull origin master // to pull directly from Git
+git reset --hard // Discard all local changes to all files permanently
+git restore --staged . // unstage all the added files
+git rm -r --cached . // remove all the cached files that were getting tracked before

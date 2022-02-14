@@ -1,0 +1,51 @@
+
+
+Command to pause the webpage after 5 sec. --> setTimeout(()=>{debugger;},5000); 
+
+
+Cypress Quick Notes
+
+Install Visual Studio
+Install Nodejs
+Create a folder in the local like CypressProjects
+Go to Terminal of VS and open the folder
+
+run --> npm init -y
+run --> npm install cypress 
+check version npx cypress -v
+run --> npx cypress open
+
+==============================
+==============================
+
+Writing the tests
+
+1. Go to integration folder and create a file of .js to write your test cases
+2. Give /// <reference types = "cypress" /> 
+3. After any change, simply save and cypress will re run the test. To disable this, go to cypress.json and set watchfForFileChanges: false. Also set "chromiumWebSecurity" : false
+
+Structure of the test is as follow:
+
+1. Create a page class for the webelements like the POM. 
+2. To create the class, create a new folder under integration, name it as pages. 
+3. Then create class using JS syntax.		
+4. Inside the class, create the functions with the name of the elements, and return element CSS Selector from the function.	
+5. At the end of the class, write export default ClassName.
+
+6. Go to the test page of the class and import the page class, write import ClassName from '../PathToTheClass'
+7. Write the test case, by writing describe keyword and use the arrow function to start. See the example in the cypress code. or below
+
+			describe('Privacy Policy Text Verification', () =>{
+				const homePage = new HomePage()
+8. Create the object of the class you want to get the methods from	
+	
+	
+	
+	
+	
+it('test name', function (){
+function and other things
+})
+
+To call the url use --> cy.visit
+To get an element use --> cy.get

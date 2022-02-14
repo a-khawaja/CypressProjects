@@ -1,0 +1,114 @@
+
+Start: --> How are you doing today?
+		   How's the weather there? 
+		   Thanks a lot for accepting the invitation and your time
+		   
+
+So the purpose of the interview today is so that we can find a little bit more about you in order
+to decide to a point to your suitability. 
+
+I have your CV infront of me. Before jumping to that I would like to first about the company that
+you have applied in and the recruitment process. Then we can have a quick intro and can proceed further.
+
+
+About me:
+
+I'm Hassan. I'm have my masters in Data Sciecne and Networks and I'm here QA lead and Head of QA, working for twinner for the last 2 years and am responsible for the whole quality of Software, product, 
+modules and the autoamtion. With this company this is my first project, before that I have worked as an automation engineer for different software projects.
+
+The recruitment process is pretry much simple, this gonna be your first interview and then 
+perhaps you would have the second round of the interview with our Head of Director or Head of Development	
+
+But before giving the glimpse of the Twinner group, do you know anything about the Twinner group or the business model
+that what we do what basically our software and theproduct is?
+
+Twinner Group: Twinner is basically a concept of the 3d modelling of the vehicles, the autonomous vehicle inspection
+and marketing approach that we have introduced. We are focussing on digitizing the vehicle inspection and automobile remarketing business. 
+So our software provides the images of the Vehicle taken from different angles and views and the we can identify the vehicle to evaluate and inspect as desired. 
+
+Currently we are operating in multiple German cities, China and about to get ourselves lauched in the Japanese market too. 
+As of now we are also working on the AI to evaluate the vehicle in a fully automated process. Its now in use by the groups like Diamler and VW and very soon by BMW.
+
+Twinner© is an international, deeply disruptive automotive startup. Twinner© produces digital Twinns© of cars of such excellent quality that automotive transactions can be made easily without ever physically seeing a car. This includes trading, insuring, financing, inspecting, valuating and moving cars. Twinner© brings sustainably transparency and trust to automotive transactions and consequently changes the mechanics of an entire industry. We are widely recognized as a leading industry disruptor (e.g. by PriceWaterhouseCoopers, Digital Insurance Agenda, German TV “Galileo” (Pro7), Autobild, Supercar Blondie Review).
+Our clients include globally known brands from the automotive ecosystem (i.e. dealers, marketplaces, OEMs). We are operating in Europe and are expanding abroad. The Twinner© Group consists of over 150 team members in four offices (headquarter Halle/Saale, Leipzig, Berlin, Budapest). As in any modern technology company you will find an empowering, ambitious and dynamic work environment. 
+
+So its pretty advanced now, and to cope with the challenges, we have to expand our team. So we've been for good QA members and our search landed on you
+
+
+About you: Tell me a little bit about yourself?
+			Tell me something about yourself what currently you are doing in testing activities, in terms of automation and overall tesing activities. 
+
+
+CV expertise: 
+			What was your motivation to apply for the Twinner?
+			How did you report to the Test manager while testing?
+			How do you define Test cases?
+			How do you see a good QA attributes?
+			Why you opted a QA field? 
+			How do you differentiate between functional and non functional requirement
+			Difference between a requirement and the need in terms of the product?
+			Strategy to design a use case
+			Give example of High prio and low severity
+			Automation experience?
+			Indivisual contributor or a team player?
+			SQL data base experience.
+			API testing? Which tools you have worked in? Scripting language
+			Scale your skills in JAVA, Selenium, MySQL, Postman, IntelliJ
+			Advantages and disavantages of the automation?
+			Difference between the verify and assert command in Selenium
+			How to initiate an reference to an object in Java?
+			What is garbage collection in Java? 
+			Difference between DOM and page fully load in JS
+			Can you tell me some practical scenarios where how exactly mobile testing is different from web testing? 
+			What is the difference between quit and close in Selenium?
+			
+
+Automation: What is your approach when you are designing a framework? 
+			How do you decide which feature to automate?
+			How do you measure the ROI?
+			What time of Frameworks you have worked on?
+			How do you differentiate between POM and Cucumber
+			Disadvantages of the automation?
+			How do you handle the iframes. 
+			Do you have any experience how to create the seeding data for the automation?
+			How do you use @After class, Before class, @After method and @Before method.
+			What is type casting in Java?
+			What is the concept of static keyword?
+
+
+
+Root Cause Analysis:
+
+1. Scenario HW issue
+	B2B Platform
+	The Electrical components are getting hang or overheated
+	Almost 10% time of the consumer is wasted to fix the issues
+
+
+	What questions you would ask to get more depth of the problem?
+	1. What are the services this platform is providing. Type of the platform
+	2. What do you mean by daily activity users? What activities do they perform on daily basis?
+	3. How much the product is getting used on daily basis
+	4. One time event? Time frame? Does it have a pattern? Consistent growth recently? Declining or incemental graph?
+	5. Any specification or test results that can be helpful in doing RCA
+	6. Any similar historic event?
+	Your Approach? Internal factors, External factors. Regional approach? User behavior?
+
+2.	Scenario SW issue. 
+	B2B Platform 
+	SW is crashing every now and the user usage is declined while doing the transaction.
+	How will you funnel through the complete process?
+
+	Do you think Code review makes sense?
+
+Documentation:
+			Your availability and notice period
+			Your work permit.
+			Where would you work from?
+			How often could you come to Leipzig
+
+
+			
+
+			
+			

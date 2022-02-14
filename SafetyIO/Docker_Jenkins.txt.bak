@@ -1,0 +1,77 @@
+Jenkins via Docker:
+
+1. Install docker locally
+
+Windows: https://docs.docker.com/desktop/windows/install/
+
+MAC: https://docs.docker.com/desktop/windows/install/
+
+Start jenkins instance:
+
+You need to open CMD in Windows or Terminal in MAC and run:
+docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:2.263.2
+
+
+Access it at https://localhost:8080
+Enter the first initilization pwd (a820b08455ff42258c29a5d90e81593f)
+
+Installed the plugins:
+1. Maven
+2. Maven pipeline
+3. Bitbuckets
+
+
+
+=============================================================
+=============================================================
+=============================================================
+
+How to start with the Docker:
+
+1. Get the docker image with the Selenium and Chrome configuration by using the command:  // or for any other browser
+docker pull selenium/standalone-chrome:latest
+2. Run the command to run the container
+docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" selenium/standalone-chrome:latest
+3. Change the selenium script to point to the remote webdriver url and the port
+4. Run the tests. 
+
+In order to run the test cases in parallel, we will use Grid (node and Hub) of Docker
+5. Get the docker-compose.yaml file from the https://github.com/SeleniumHQ/docker-selenium
+6. Save the file, go to the directory and run 
+	docker-compose up (this will download all the images of the file)
+7. If you want to increase the number of the nodes, run the following
+	docker-compose scale chrome=3 (In total 3 nodes of the chrome will be created)
+8. In order to run the tests in parallel, invoke the testng file by providing the browserName in the testNG file and run it
+9. In order to up the docker automatically, create a bat file. One for Up and one for down.
+
+	cd C:\Users\a.khawaja\IdeaProjects\Miro
+	docker-compose up
+
+For stopping create with:
+	cd C:\Users\a.khawaja\IdeaProjects\Miro
+	docker-compose down
+
+10. Now run these bat files using the JAVA program. Check the command in the code
+
+
+How to create the Docker Image of our Test Automation Framework
+1. Create a Dockerfile in the framework and 
+	pull the base image that has Maven and JDK installed on it. 
+	copy the source code
+	copy the pom 
+	copy the testng file
+	run the run command to compile
+
+
+2. Run the command to create the image
+	docker build -t <imagename> .
+
+3. Once the image is created, run the command
+	docker run -d --network="host" <imagename> mvn -f /home/AutomatedTests/pom.xml clean test -Dtestngfile="testng.xml"
+
+4. Check the logs by the command	
+	docker logs <image reference you get after running the container>
+	
+Make sure you are running the cmd and the docker desktop in the admin mode.
+
+ 

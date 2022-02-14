@@ -1,0 +1,22 @@
+POM:
+
+Terminal will have a command that will tell which testrunner file to go to
+Inside test ruuner, firstly @CucumberOptions will be triggered and then inside it all the paths respectively
+Then we go inside Class of the testrunner
+Then everything inside the test runner is kinda same. 
+If we introduce seeding test data, then we have to create reference to an object for that class where test data creation fuction is to call the function to create the test data inside the "Setup" method
+
+@Test annotation should have the "dataProvider" so that it should know which test cases it has to run
+@DataProvider should have the same "name" as we provide in the @Test in the "dataProvider" to let it compile and run. It is a must
+
+Next steps is the calling of the Hooks_UI
+
+Hooks Class --> Used mostly with TESTNG. The class that will be called before and after each scneario. This class should ALWAYS be below the Test Java (and not main Java)
+
+@HooksUI contain the static object "container" that can be access without class initialization. 
+
+@PageContainer Class has the objects of all the page classes and have been initiated there. The reference (page container) to an object in the PageContainer class has been initiated in the HooksUI class and acts as a bridge to access all the functions and elements of the page classes in the step defs.
+ 
+ @PageBase class Every page class is extended with the Pagebase class. PageBase class contains all the common functions that could be reused. 
+
+ @PageClasses -- All the classes have the super constructor that will initialize the driver from the pagebase class.

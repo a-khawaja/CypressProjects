@@ -1,0 +1,17 @@
+{
+    
+    "watchForFileChanges": false,
+    "defaultCommandTimeout": 10000, 
+    "chromeWebSecurity": false,
+
+    "env": {
+        "testmUrl": "https://mytwinn.testm.twinner.com/logout",
+        "testmEmail": "myTwinn@yopmail.com",
+        "testmPwd": "TEAMqa_2021", 
+
+        "devceUrl": "https://mytwinn.devce.twinner.com/logout",
+        "devceEmail": "",
+        "devcePwd": "" 
+    }
+
+}

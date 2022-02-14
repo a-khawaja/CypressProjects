@@ -1,0 +1,20 @@
+PHP Basics:
+
+1. Server side language.
+2. <? php // start tag 
+	?> // end tag
+
+3. echo "Hi Hassan!"; // Just a print statement
+4. Variables starts with a $ sign followed by the name. Example $myVariable
+5. Same concepts for if, elseif, switch statment, comparators, and logical operators, break, while, do while, and, for loop, like JAVA
+6. include, include_once, require, require_once
+7. function <functionName>($num1, $num2){
+	$value = $num1 + $num2;
+	return $value;
+}
+
+8. Same concept for the constructors. Instead of using "." we use "->"
+
+
+echo "The chef makes the chicken para";
+

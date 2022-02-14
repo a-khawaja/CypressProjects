@@ -1,0 +1,126 @@
+   private void deleteTestDataViaJenkinsJob() throws Exception {
+
+        System.out.println("### Start: Jenkins Job - remove test data ###");
+
+
+        HttpRequest request = HttpRequest.newBuilder()
+
+                .GET()
+
+                .uri(URI.create("https://jenkins.ops.twinner.com/job/5_QA/job/TESTM/job/Twinner-TESTM-Database-TestData-Cleanup/build?token=trigger-testdata-deletion"))
+
+                .header("Authorization", createBasicAuthCredentails())
+
+                .build();
+
+
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+        String urlJobQueue = response.headers().map().get("Location").get(0);
+
+        System.out.println("# Build-Job added to queue: " + urlJobQueue);
+
+        String urlJobDetails = fetchUrlToJobDetails(urlJobQueue);
+
+        waitUntilJobIsFinished(urlJobDetails);
+
+    }
+
+
+    private String fetchUrlToJobDetails(String urlJobQueue) throws Exception {
+
+        for(int i = 0; i < 15; i++) {
+
+            HttpRequest requestJobDetails = HttpRequest.newBuilder()
+
+                    .GET()
+
+                    .uri(URI.create(urlJobQueue + "/api/json?pretty=true"))
+
+                    .header("Authorization", createBasicAuthCredentails())
+
+                    .build();
+
+
+            System.out.println("# Waiting in queue");
+
+            HttpResponse<String> responseJobDetails = httpClient.send(requestJobDetails, HttpResponse.BodyHandlers.ofString());
+
+            String jsonQueueDetails = responseJobDetails.body();
+
+            JsonObject jsonObject = new JsonParser().parse(jsonQueueDetails).getAsJsonObject();
+
+
+            if(jsonObject.has("executable")) {
+
+                String url = jsonObject.get("executable").getAsJsonObject().get("url").getAsString();
+
+                System.out.println("# Build-Job started: " + url);
+
+                return url;
+
+            }
+
+            Thread.sleep(2000);
+
+        }
+
+        throw new Exception("xxx Could not start the Build within 30s xxx");
+
+    }
+
+
+    private void waitUntilJobIsFinished(String urlJobDetails) throws Exception {
+
+        for(int i = 0; i < 50; i++) {
+
+            HttpRequest requestJobDetails = HttpRequest.newBuilder()
+
+                    .GET()
+
+                    .uri(URI.create(urlJobDetails + "/api/json?pretty=true"))
+
+                    .header("Authorization", createBasicAuthCredentails())
+
+                    .build();
+
+
+            System.out.println("# Building ...");
+
+            HttpResponse<String> responseJobDetails = httpClient.send(requestJobDetails, HttpResponse.BodyHandlers.ofString());
+
+            String jsonJobDetails = responseJobDetails.body();
+
+            JsonObject jsonObject = new JsonParser().parse(jsonJobDetails).getAsJsonObject();
+
+
+            boolean isBuilding = jsonObject.get("building").getAsBoolean();
+
+            if(!isBuilding) {
+
+                System.out.println("# ✅ Test data deleted successfully ✅");
+
+                System.out.println("### Stop: Jenkins Job - remove test data ###");
+
+                return;
+
+            }
+
+            Thread.sleep(2000);
+
+        }
+
+        throw new Exception("xxx Build Job could not be done within 100s xxx");
+
+    }
+
+
+    private static String createBasicAuthCredentails() {
+
+        return "Basic " + Base64.getEncoder().encodeToString(("f.aurich@twinner.com" + ":" + "11a58f5748ff3ef84123ac728117e66622").getBytes());
+
+    }
+
+
+}
+

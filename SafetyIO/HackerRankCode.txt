@@ -1,0 +1,99 @@
+export class User {
+ 
+  constructor(name) {
+     this.name = name;
+     this.lastLogInAt = null;
+     this.loggedIn = false;
+  }
+  
+  isLoggedIn() {
+    return this.loggedIn;
+  }
+  
+  getLastLoggedInAt() {
+    return this.lastLogInAt;
+  }
+  
+  logIn() {
+    this.lastLogInAt = new Date();
+    return Promise.resolve('Success').then(() => {
+      this.loggedIn = true;
+    });
+  }
+  
+  logOut() {
+    this.loggedIn = false;
+  }
+
+  getName() {
+    return this.name;
+  }
+  
+  setName(name) {
+    this.name = name;
+  }
+  
+  canEdit(comment) {
+    if(comment.getAuthor().getName() === this.getName()) {
+      return true; 
+    } else return false;
+  }
+  
+  canDelete(comment) {
+    return false;
+  }
+}
+
+export class Moderator extends User{
+   constructor(name) {
+   super(name);
+  }
+  
+  canDelete(comment) {
+    return true;
+  }
+}
+
+export class Admin extends Moderator {
+   constructor(name) {
+    super(name);
+  }
+  
+  canEdit(comment){
+    return true;
+  }
+}
+
+export class Comment {
+  constructor(author, message, repliedTo) {
+    this.author = author;
+    this.repliedTo = repliedTo;
+    this.message = message;
+    this.createdAt = new Date();
+  }
+
+  getMessage() {
+    return this.message;
+  }
+  
+  setMessage(message) {
+    this.message = message;
+  }
+  
+  getCreatedAt() {return this.createdAt;}
+  
+  getAuthor() {
+    return this.author;
+  }
+  
+  getRepliedTo() {
+    return this.repliedTo;
+  }
+  
+  toString() {
+    if(this.repliedTo === undefined){
+        return this.getMessage() + " by " + this.author.name;
+    } else
+         return this.getMessage() + " by " + this.author.name + " (replied to "          + this.repliedTo.getAuthor().name + ")";
+    }
+}
